@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_20_205832) do
+ActiveRecord::Schema.define(version: 2019_02_20_220029) do
 
   create_table "songs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
     t.string "title"
@@ -18,6 +18,12 @@ ActiveRecord::Schema.define(version: 2019_02_20_205832) do
     t.string "album"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "key_letter", limit: 1
+    t.integer "key_number", limit: 1, unsigned: true
+    t.integer "bpm", limit: 1, unsigned: true
+    t.integer "energy", limit: 1, unsigned: true
+    t.integer "year", limit: 2, unsigned: true
+    t.string "genres"
   end
 
 end
