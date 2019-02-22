@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_20_222726) do
+ActiveRecord::Schema.define(version: 2019_02_22_034010) do
 
   create_table "branches", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
     t.bigint "song_id", null: false
@@ -32,6 +32,14 @@ ActiveRecord::Schema.define(version: 2019_02_20_222726) do
     t.integer "energy", limit: 1, unsigned: true
     t.integer "year", limit: 2, unsigned: true
     t.string "genres"
+  end
+
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
