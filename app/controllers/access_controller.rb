@@ -3,6 +3,7 @@ class AccessController < ApplicationController
 
   def menu
     @username = session[:username]
+    @page_title = 'admin menu'
   end
 
   def login

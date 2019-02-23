@@ -1,9 +1,4 @@
-<% @page_title = "admin menu" %>
-
 <div class="menu">
-  <h2><%= @page_title %></h2>
   <div class="identity">logged in as: <%= @username %></div>
-  <ul>
-    <li><%= link_to("logout", access_logout_path) %></li>
-  </ul>
+  <%= link_to("logout", access_logout_path) %>
 </div>
