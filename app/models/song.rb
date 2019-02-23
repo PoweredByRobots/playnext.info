@@ -1,6 +1,4 @@
 class Song < ApplicationRecord
-  attr_reader :artist, :title, :year, :key, :bpm, :energy
-
   has_many :branches
 
   alias branch branches
