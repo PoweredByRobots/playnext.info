@@ -1,0 +1,47 @@
+<% unless smart_listing.empty? %>
+  <table class="table-bordered">
+    <thead>
+      <tr>
+        <th>
+          <%= smart_listing.sortable "Artist", :artist %>
+        </th>
+        <th>
+          <%= smart_listing.sortable "Title", :title %>
+        </th>
+        <th>
+          <%= smart_listing.sortable "BPM", :bpm %>
+        </th>
+        <th>
+          <%= smart_listing.sortable "Energy", :energy %>
+        </th>
+        <th>
+          <%= smart_listing.sortable "Released", :year %>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% smart_listing.collection.each do |song| %>
+        <tr>
+          <td>
+            <%= song.artist.downcase %>
+          </td>
+          <td>
+            <%= link_to song.title.downcase, song_path(song.id) %>
+          </td>
+          <td align="center">
+            <%= song.bpm %>
+          </td>
+          <td align="center">
+            <%= song.energy %>
+          </td>
+          <td align="center">
+            <%= song.year %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= smart_listing.paginate  %>
+<% else %>
+  <p class="warning">¯\_(ツ)_/¯</p>
+<% end %>

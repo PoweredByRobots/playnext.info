@@ -67,3 +67,6 @@ gem 'jquery-rails'
 
 # Bootswatch makes things prettier still
 gem 'bootswatch', github: 'thomaspark/bootswatch'
+
+# For sortable/filterable tables of delicious data
+gem 'smart_listing'
