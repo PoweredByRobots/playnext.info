@@ -6,6 +6,7 @@ class AccessController < ApplicationController
   end
 
   def login
+    @page_title = 'login'
   end
 
   def attempt_login

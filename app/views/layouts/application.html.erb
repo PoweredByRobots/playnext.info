@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Playnext</title>
+    <title>playnext.info</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,11 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div align='center'>
+      <h1>playnext.info</h1>
+      <hr>
+      <h5><%= @page_title %></h2>
+      <%= yield %>
+    </div>
   </body>
 </html>

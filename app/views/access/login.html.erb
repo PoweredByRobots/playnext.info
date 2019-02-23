@@ -1,7 +1,5 @@
-<% @page_title = "Admin Login" %>
-
 <div class="login">
-  <%= form_tag(access_attempt_login_path, :method => :post) do %>
+  <%= form_tag(access_attempt_login_path, method: 'post') do %>
   <table>
     <tr>
       <td><%= label_tag(:name) %></td>
@@ -13,8 +11,10 @@
     </tr>
     <tr>
       <td>&nbsp;</td>
-      <td><%= submit_tag("Log In") %></td>
+      <td><%= submit_tag("log in") %></td>
     </tr>
   </table>
   <% end %>
 </div>
+
+
