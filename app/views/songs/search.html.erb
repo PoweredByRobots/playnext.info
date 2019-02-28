@@ -1,8 +1,8 @@
-<div class='container-fluid'>
-  <div class='row mx-auto'>
+<div class='container'>
+  <div class='row'>
     <%= smart_listing_controls_for(:songs, { class: 'form-inline mx-auto' }) do %>
       <!-- Levels -->
-      <div class='col-md-2 mb-3'>
+      <div class='col-sm mb-3'>
         <div class="checkbox">
           <label class="checkbox inline">
             <%= hidden_field_tag :level_1, 0 %>
@@ -41,14 +41,14 @@
       </div>
 
       <!-- Search -->
-      <div class="form-group filter input-append col-md-7 input-group mb-3">
+      <div class="form-group filter input-append col-sm-3 col-md-5 col-lg-7 input-group mb-3">
         <%= text_field_tag :search_filter, '', class: "search form-control text-center", 
           placeholder: "artist - title", size: 50,
           autocomplete: "off" %>
       </div>
       
       <!-- Show All Checkbox -->
-      <div class='col-md-3 mb-3'>
+      <div class='col-sm mb-3'>
         <div class="checkbox">
         <label class="checkbox inline">
           <%= hidden_field_tag :show_all, "0" %>
@@ -59,12 +59,13 @@
       </div>
     <% end %>
   </div>
-</div>
-
-<hr>
-
-<!-- Compatible Songs -->
-<div id='compatible' align='center'>
-  <h3>suggestions</h3>
-  <%= smart_listing_render :songs %>
+  <div class='row'>
+    <div class='mx-auto text-center justify-content-center'>
+      <div class='col'>
+        <!-- Compatible Songs -->
+        <h3>suggestions</h3>
+        <%= smart_listing_render :songs %>
+      </div>
+    </div>
+  </div>
 </div>
