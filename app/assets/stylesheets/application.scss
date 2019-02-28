@@ -12,9 +12,13 @@
  *
  */
  // Custom bootstrap variables must be set or imported *before* bootstrap.
-@import "superhero/variables";
+ /*
+ *= require font-awesome
+ */
+ 
+@import "solar/variables";
 @import "bootstrap";
-@import "superhero/bootswatch";
+@import "solar/bootswatch";
 
 table, th, td {
    border: 1px solid;
