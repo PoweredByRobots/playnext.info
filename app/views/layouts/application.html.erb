@@ -10,11 +10,23 @@
   </head>
 
   <body>
-    <div align='center'>
-      <h1><%= link_to 'playnext.info', root_path %></h1>
+    <nav class='navbar navbar-toggleable-sm navbar-dark navbar-inverse'>
+      <div class='container'>
+        <button class='navbar-toggler' data-toggle='collapse' data-target='#mainNav'>
+          <span class='navbar-toggler-icon'></span>
+        </button>
+        <div class='collapse navbar-collapse' id='mainNav'>
+          <div class='navbar-nav'>
+            <a class='nav-item nav-link <%= @admin_menu %>' href='<%= admin_path %>'>login</a>
+          </div>
+        </div>
+      </div>
+    </nav> 
+    <div class='jumbotron jumbotron-fluid text-center'>
+      <h1 class='display-4'><%= link_to 'playnext.info', root_path %></h1>
       <hr>
-      <h5><%= @page_title %></h2>
-      <%= yield %>
+      <p class='lead'><%= @page_title %></p>
     </div>
+    <%= yield %>
   </body>
 </html>

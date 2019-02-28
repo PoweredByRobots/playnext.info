@@ -4,6 +4,7 @@ class AccessController < ApplicationController
   def menu
     @username = session[:username]
     @page_title = 'admin menu'
+    @admin_menu = 'active'
   end
 
   def login
