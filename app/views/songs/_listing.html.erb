@@ -1,3 +1,4 @@
+<script>$(document).on("turbolinks:load",function(){ $('.tag-tooltip').tooltip(); })</script>
 <% unless smart_listing.empty? %>
   <table class="table-bordered">
     <thead>
@@ -26,7 +27,11 @@
             <%= song.artist.downcase %>
           </td>
           <td>
-            <%= link_to song.title.downcase, song_path(song.id) %>
+            <%= link_to song.title.downcase, song_path(song.id),
+                  class: "tag-tooltip",
+                  :data => {:toggle=>"tooltip"},
+                  'data-original-title' => "[#{song.key}] #{song.genres}",
+                  'data-placement' => 'right'%>
           </td>
           <td align="center">
             <%= song.bpm %>
