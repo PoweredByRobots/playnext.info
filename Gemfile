@@ -62,7 +62,7 @@ end
 # Bootstrap makes things pretty
 gem 'bootstrap', '~> 4.3.1'
 gem 'rails-assets-tether', '>= 1.3.3', source: 'https://rails-assets.org'
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
 
 # Required by bootstrap
 gem 'jquery-rails'
