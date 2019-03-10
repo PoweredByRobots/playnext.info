@@ -4,7 +4,8 @@ class SongsController < ApplicationController
   helper  SmartListing::Helper
 
   def search
-    @page_title = 'current song'
+    @current_song = params[:current_song]
+    @page_title = @current_song
     song_scope = Song.all
     puts "*** Search filter: #{params[:search_filter]} ***"
     song_scope = song_scope.where("title LIKE '%#{params[:search_filter]}%'") if params[:search_filter]

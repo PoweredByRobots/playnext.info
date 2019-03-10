@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'access/logout'
 
   post 'access/attempt_login'
+  post 'songs/search'
 
   resources :songs
   resources :branches, only: [:create, :destroy]
