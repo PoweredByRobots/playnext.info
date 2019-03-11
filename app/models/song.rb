@@ -3,11 +3,15 @@ class Song < ApplicationRecord
 
   alias branch branches
 
-  validates_presence_of :artist, :title
+  validates_presence_of :artist, :title, :filename
   validate :valid_key?, :valid_bpm?
 
   def key
     "#{key_number}#{key_letter}"
+  end
+
+  def preview_link
+    binding.pry
   end
 
   private
