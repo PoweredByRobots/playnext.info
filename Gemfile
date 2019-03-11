@@ -72,3 +72,6 @@ gem 'bootswatch', github: 'thomaspark/bootswatch'
 
 # For sortable/filterable tables of delicious data
 gem 'smart_listing'
+
+# For sound
+gem 'audio-playback'

@@ -3,6 +3,7 @@ class AccessController < ApplicationController
 
   def menu
     @username = session[:username]
+    @sound_device = session[:sound_device]
     @page_title = 'admin menu'
     @admin_menu = 'active'
   end
@@ -21,10 +22,10 @@ class AccessController < ApplicationController
       session[:user_id] = authorized_user.id
       session[:username] = authorized_user.name
       flash[:notice] = 'logged in.'
-      redirect_to(admin_path)
+      redirect_to admin_path
     else
       flash.now[:notice] = 'invalid name/password combination.'
-      render('login')
+      render 'login'
     end
   end
 
@@ -32,6 +33,11 @@ class AccessController < ApplicationController
     session[:user_id] = nil
     session[:username] = nil
     flash[:notice] = 'logged out'
-    redirect_to(access_login_path)
+    redirect_to access_login_path
+  end
+
+  def select_sound_device
+    session[:sound_device] = AudioPlayback::Device::Output.gets
+    redirect_to admin_path
   end
 end

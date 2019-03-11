@@ -4,6 +4,9 @@
     <thead>
       <tr>
         <th>
+          Preview
+        </th>
+        <th>
           <%= smart_listing.sortable "Artist", :artist %>
         </th>
         <th>
@@ -23,6 +26,7 @@
     <tbody>
       <% smart_listing.collection.each do |song| %>
         <tr>
+          <td><%= song.preview_link %></td>
           <td>
             <%= song.artist.downcase %>
           </td>
