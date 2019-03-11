@@ -1,14 +1,31 @@
+require 'io/console'
+
 # Handle data from another source
 class ParentDb
   attr_reader :client
 
   def export_all
+    @overwrite = prompt_to_overwrite? ? true : false
     songs.each { |song| export(song) }
   end
 
   private
 
+  def drive_letter
+    'Z:'
+  end
+
+  def music_path
+    '/Users/you/Music/Squirrel'
+  end
+
+  def prompt_to_overwrite?
+    print 'Overwrite existing records? (y/n) ==> '
+    STDIN.getch == 'y'
+  end
+
   def local_match?(song)
+    return false if @overwrite == true
     !Song.where(artist: song['artist'], title: song['title']).empty?
   end
 
@@ -26,7 +43,7 @@ class ParentDb
   end
 
   def fields_of_interest
-    %w(artist title album albumyear genre info bpm grouping energy)
+    %w(artist title album albumyear genre info bpm grouping energy filename)
   end
 
   def db_name
@@ -46,7 +63,13 @@ class ParentDb
       key_number: number_from_key(song['info']),
       key_letter: letter_from_key(song['info']),
       bpm: song['bpm'],
-      genres: song['grouping'] }
+      genres: song['grouping'],
+      filename: win_to_mac(song['filename']) || binding.pry }
+  end
+
+  def win_to_mac(filename)
+    mac_filename = filename.tr '\\', '/'
+    mac_filename.sub! drive_letter, music_path
   end
 
   def to_energy
