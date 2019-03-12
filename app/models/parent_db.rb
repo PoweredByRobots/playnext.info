@@ -11,12 +11,8 @@ class ParentDb
 
   private
 
-  def drive_letter
-    'Z:'
-  end
-
   def music_path
-    '/Users/you/Music/Squirrel'
+    'Z:/The Talent/Music/'
   end
 
   def prompt_to_overwrite?
@@ -64,12 +60,12 @@ class ParentDb
       key_letter: letter_from_key(song['info']),
       bpm: song['bpm'],
       genres: song['grouping'],
-      filename: win_to_mac(song['filename']) || binding.pry }
+      filename: win_to_mac(song['filename']) }
   end
 
   def win_to_mac(filename)
     mac_filename = filename.tr '\\', '/'
-    mac_filename.sub! drive_letter, music_path
+    mac_filename.delete_prefix music_path
   end
 
   def to_energy
