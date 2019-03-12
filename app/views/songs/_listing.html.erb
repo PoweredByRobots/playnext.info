@@ -26,7 +26,7 @@
     <tbody>
       <% smart_listing.collection.each do |song| %>
         <tr>
-          <td><%= song.preview_link %></td>
+          <td><%= audio_tag '/music/'+ song.filename, controls: true %></td>
           <td>
             <%= song.artist.downcase %>
           </td>

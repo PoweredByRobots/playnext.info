@@ -7,8 +7,6 @@ Rails.application.routes.draw do
   get 'access/menu'
   get 'access/login'
   get 'access/logout'
-  get 'access/select_sound_device'
-  post 'access/select_sound_device'
 
   post 'access/attempt_login'
   post 'songs/search'

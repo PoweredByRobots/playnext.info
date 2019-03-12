@@ -1,6 +1,4 @@
 <div class="menu">
-  <p>sound device: <%= @sound_device['name'] %></p>
-  <%= button_to 'Select sound device', action: 'select_sound_device' %> 
   <div class="identity">logged in as: <%= @username %></div>
   <%= link_to("logout", access_logout_path) %>
 </div>

@@ -10,10 +10,6 @@ class Song < ApplicationRecord
     "#{key_number}#{key_letter}"
   end
 
-  def preview_link
-    binding.pry
-  end
-
   private
 
   def valid_key?

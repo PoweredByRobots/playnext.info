@@ -3,7 +3,6 @@ class AccessController < ApplicationController
 
   def menu
     @username = session[:username]
-    @sound_device = session[:sound_device]
     @page_title = 'admin menu'
     @admin_menu = 'active'
   end
@@ -34,10 +33,5 @@ class AccessController < ApplicationController
     session[:username] = nil
     flash[:notice] = 'logged out'
     redirect_to access_login_path
-  end
-
-  def select_sound_device
-    session[:sound_device] = AudioPlayback::Device::Output.gets
-    redirect_to admin_path
   end
 end
