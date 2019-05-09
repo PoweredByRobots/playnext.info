@@ -1,13 +1,16 @@
 <div class='container'>
   <div class='row'>
       <%= form_tag(songs_search_path, { class: 'form-inline mx-auto' }) do %>
-        <%= label_tag nil, 'set/change song:' %>
-        <%= text_field_tag :current_song, nil, placeholder: @current_song %>
+        <%= form_for @song do |f| %>
+          <%= f.autocomplete_field :title, autocomplete_title_songs_path %>
+        <% end %> 
+        <%= # text_field_tag :current_song, nil, class: "search form-control text-center", placeholder: @current_song || 'now playing' %>
         <%= button_tag type: 'submit', class: "button" do %>
-        <i class="fa fa-exchange"></i>
-    <% end %>
+          <i class="fa fa-exchange"></i>
+        <% end %>
       <% end %>
   </div>
+  <hr>
   <div class='row'>
     <%= smart_listing_controls_for(:songs, { class: 'form-inline mx-auto' }) do %>
       <!-- Levels -->
